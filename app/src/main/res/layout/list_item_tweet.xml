@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:textStyle="bold"
-        android:text="名前入ります"
+        android:text="ユーザー名"
         android:layout_alignTop="@+id/icon"
         android:layout_toRightOf="@+id/icon"
         android:layout_toEndOf="@+id/icon"
@@ -45,6 +45,6 @@
         android:layout_marginBottom="5dp"
         android:layout_alignLeft="@+id/name"
         android:layout_below="@+id/name"
-        android:text="本文本文本文本文本文本文本文本文本文本文" />
+        android:text="おっぱいがいっぱいでもおっぱい" />
 
 </RelativeLayout>
