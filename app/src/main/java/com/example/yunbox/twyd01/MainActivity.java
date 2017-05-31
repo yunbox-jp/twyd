@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private ListView mListView;
     private TweetAdapter mAdapter;
     private Twitter mTwitter;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +52,15 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         } else {
+            mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.refresh);
+            mSwipeRefreshLayout.setOnRefreshListener(mOnRefreshListener);
+            mSwipeRefreshLayout.setColorSchemeResources(R.color.swipe_color_1, R.color.swipe_color_2,
+                    R.color.swipe_color_3, R.color.swipe_color_4);
+
+
             //ListViewの設定
+
+
             mListView = (ListView)this.findViewById(R.id.myTL);
             mAdapter = new TweetAdapter(this);
             mListView.setAdapter(mAdapter);
@@ -66,6 +78,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private SwipeRefreshLayout.OnRefreshListener mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener(){
+        @Override
+        public void onRefresh(){
+            reloadTimeLine();
+            mSwipeRefreshLayout.setRefreshing(false);
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
