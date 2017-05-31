@@ -8,24 +8,33 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:text="名前入ります"
         android:layout_alignTop="@+id/icon"
-        android:layout_marginLeft="8dp"
         android:layout_toRightOf="@+id/icon"
-        android:text="名前入ります" />
+        android:layout_toEndOf="@+id/icon"
+        android:layout_marginStart="10dp" />
 
     <TextView
         android:id="@+id/screen_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:layout_alignTop="@+id/name"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="3dp"
         android:layout_toRightOf="@+id/name"
         android:text="\uFF20gabu" />
 
@@ -33,6 +42,7 @@
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:layout_alignLeft="@+id/name"
         android:layout_below="@+id/name"
         android:text="本文本文本文本文本文本文本文本文本文本文" />
